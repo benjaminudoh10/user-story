@@ -58,14 +58,6 @@ class Story(db.Model):
     assigned_for_approval = db.Column(db.Boolean, default=False)
     approved = db.Column(db.Boolean, nullable=True)
 
-    @property
-    def activated(self):
-        return self.approved == True
-    
-    @property
-    def inactive(self):
-        return self.approved == False
-
     def to_json(self):
         result = {}
         result['id'] = self.id
